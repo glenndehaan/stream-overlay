@@ -1,6 +1,8 @@
 import {h, Component} from 'preact';
 import { connect } from "unistore/preact";
 
+import News from "./partials/News";
+
 class Home extends Component {
     /**
      * Preact render function
@@ -10,6 +12,7 @@ class Home extends Component {
     render() {
         return (
             <div className="starter-template">
+                <News/>
             </div>
         );
     }
