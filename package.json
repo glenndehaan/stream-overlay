@@ -1,0 +1,126 @@
+{
+  "name": "stream-overlay",
+  "version": "0.0.0",
+  "description": "NPM packages for stream-overlay",
+  "private": true,
+  "scripts": {
+    "debug": "cd ./app/src && node --inspect-brk=0.0.0.0:5858 ./server.js",
+    "start": "cd ./app/src && node ./server.js",
+    "dev": "cd ./app/src && nodemon -L --watch ./ ./server.js",
+    "server:build": "pkg ./package.json --targets latest-linux-x64,latest-macos-x64,latest-win-x64 --out-path ./app/dist",
+    "prewebpack": "rimraf ./public/dist",
+    "webpack": "webpack --watch --watch-poll --mode development --config ./_scripts/webpack/webpack.config.js",
+    "prewebpack:production": "rimraf ./public/dist",
+    "webpack:production": "cross-env NODE_ENV=production webpack --mode production --config ./_scripts/webpack/webpack.config.js",
+    "build": "npm run webpack:production && npm run server:build",
+    "lint": "eslint -c ./package.json ./",
+    "madge": "madge ./app/src && madge ./app/src --circular"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "pkg": {
+    "assets": [
+      "_scripts/config/*",
+      "app/src/config/version/version.txt",
+      "app/src/**/*.js",
+      "app/src/**/*.ejs",
+      "public/**/*",
+      "LICENCE",
+      "README.md"
+    ]
+  },
+  "bin": "app/src/bundle.js",
+  "author": "Glenn de Haan",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "react/prop-types": 0,
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "indent": [
+        "error",
+        4
+      ]
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "settings": {
+      "react": {
+        "pragma": "h",
+        "version": "16.0"
+      }
+    }
+  },
+  "eslintIgnore": [
+    "public/dist",
+    "*.test.js"
+  ],
+  "dependencies": {
+    "atob": "^2.1.2",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.3",
+    "btoa": "^1.2.1",
+    "compression": "^1.7.3",
+    "cross-env": "^5.2.0",
+    "css-loader": "^0.28.11",
+    "deepmerge": "^2.2.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ws": "^4.0.0",
+    "mini-css-extract-plugin": "^0.4.4",
+    "mitt": "^1.1.3",
+    "node-fetch": "^2.2.1",
+    "node-sass": "^4.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "pkg": "^4.3.4",
+    "preact": "^8.3.1",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.0.3",
+    "simple-node-logger": "^0.93.40",
+    "size-plugin": "^1.0.1",
+    "sockette": "^2.0.1",
+    "uglify-es": "^3.3.10",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "unfetch": "^4.0.1",
+    "unistore": "^3.1.0",
+    "uuid": "^3.3.2",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-manifest-plugin": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-react": "^7.10.0",
+    "madge": "^3.3.0",
+    "nodemon": "^1.18.6"
+  }
+}

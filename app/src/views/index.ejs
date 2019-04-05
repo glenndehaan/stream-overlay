@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head.ejs %>
+    </head>
+    <body>
+        <noscript>
+            <div id="root">
+                <div>
+                    <h3>Woops!</h3>
+                    Houston we got a problem. This page only works with JavaScript enabled.<br/>
+                    Please enable JavaScript!
+                </div>
+            </div>
+        </noscript>
+        <script>
+            window.expressConfig = {
+                protocol: '<%= protocol %>',
+                hostname: '<%= hostname %>',
+                baseUrl: '<%= baseUrl %>',
+                appName: '<%= appName %>',
+                env: '<%= env %>'
+            };
+        </script>
+        <script src="/dist/<%= assets.js %>" type="application/javascript"></script>
+    </body>
+</html>
