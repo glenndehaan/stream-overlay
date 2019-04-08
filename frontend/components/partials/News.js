@@ -12,7 +12,7 @@ class News extends Component {
     render() {
         return (
             <div className="news">
-                {this.props.news &&
+                {this.props.news && this.props.news.length > 0 &&
                     <marquee truespeed scrolldelay="10" scrollamount="1" ref={c => this.marquee = c}>
                         {this.props.news.map((newsItem, index) => (
                             <span key={index}>

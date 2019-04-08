@@ -19,6 +19,7 @@ module.exports = {
         level: "info"
     },
     news: {
+        enabled: true,
         url: "http://www.nu.nl/rss/Algemeen"
     }
 };

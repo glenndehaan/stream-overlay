@@ -16,10 +16,19 @@ class news {
      * Initial function for updating the news
      */
     init() {
-        logger.info(`[NEWS] Indexing news!`);
-        this.updateNews();
+        if(config.news.enabled) {
+            logger.info(`[NEWS] Indexing news!`);
+            this.updateNews();
 
-        setInterval(() => this.updateNews(), 60000);
+            setInterval(() => this.updateNews(), 60000);
+        } else {
+            socket.informAllSockets("news", {
+                news: []
+            });
+            config.news.titles = [];
+
+            logger.warn(`[NEWS] Is disabled!`);
+        }
     }
 
     /**
