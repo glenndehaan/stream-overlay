@@ -17,5 +17,8 @@ module.exports = {
     logger: {
         location: "./log",
         level: "info"
+    },
+    news: {
+        url: "http://www.nu.nl/rss/Algemeen"
     }
 };

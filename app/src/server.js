@@ -8,6 +8,7 @@ const fs = require("fs");
  */
 const log = require("./modules/logger");
 const web = require("./modules/web");
+const news = require("./modules/news");
 
 /**
  * Check if we are running as dev
@@ -36,7 +37,9 @@ if(!dev) {
         }, 5000)
     } else {
         web.init();
+        news.init();
     }
 } else {
     web.init();
+    news.init();
 }

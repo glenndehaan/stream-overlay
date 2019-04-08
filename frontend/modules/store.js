@@ -8,13 +8,8 @@ import devtools from 'unistore/devtools';
  */
 const createStore = () => {
     const initialState = {
-        servers: [],
-        groups: [],
-        matches: [],
-        maps: [],
-        configs: {},
-        challonge: [],
-        logs: []
+        news: [],
+        hey: []
     };
 
     return process.env.NODE_ENV === 'production' ?  createUnistore(initialState) : devtools(createUnistore(initialState));
@@ -29,17 +24,7 @@ const actions = () => {
     return {
         setSocketData(state, payload) {
             return {
-                servers: payload.servers,
-                groups: payload.groups,
-                matches: payload.matches,
-                maps: payload.maps,
-                configs: payload.configs,
-                challonge: payload.challonge
-            };
-        },
-        setLogData(state, payload) {
-            return {
-                logs: payload.logs
+                news: payload.news
             };
         }
     };

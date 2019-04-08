@@ -60,7 +60,9 @@ class socket {
              */
             ws.send(this.encrypt({
                 instruction: 'init',
-                data: {}
+                data: {
+                    news: config.news.titles
+                }
             }));
 
             log.info(`[SOCKET][${ws.id}] User connected!`)
