@@ -9,6 +9,7 @@ const fs = require("fs");
 const log = require("./modules/logger");
 const web = require("./modules/web");
 const news = require("./modules/news");
+const weather = require("./modules/weather");
 
 /**
  * Check if we are running as dev
@@ -38,8 +39,10 @@ if(!dev) {
     } else {
         web.init();
         news.init();
+        weather.init();
     }
 } else {
     web.init();
     news.init();
+    weather.init();
 }

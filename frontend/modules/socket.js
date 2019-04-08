@@ -71,6 +71,12 @@ export default new class Socket {
 
             store.setState(message.data);
         }
+
+        if(message.instruction === "weather") {
+            console.log('[SOCKET] Weather', message.data);
+
+            store.setState(message.data);
+        }
     }
 
     /**

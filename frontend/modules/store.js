@@ -9,7 +9,7 @@ import devtools from 'unistore/devtools';
 const createStore = () => {
     const initialState = {
         news: [],
-        hey: []
+        weather: {}
     };
 
     return process.env.NODE_ENV === 'production' ?  createUnistore(initialState) : devtools(createUnistore(initialState));

@@ -21,5 +21,9 @@ module.exports = {
     news: {
         enabled: true,
         url: "http://www.nu.nl/rss/Algemeen"
+    },
+    weather: {
+        enabled: true,
+        location: "Rotterdam,nl"
     }
 };

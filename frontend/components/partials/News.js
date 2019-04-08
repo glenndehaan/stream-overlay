@@ -14,6 +14,7 @@ class News extends Component {
             <div className="news">
                 {this.props.news && this.props.news.length > 0 &&
                     <marquee truespeed scrolldelay="10" scrollamount="1" ref={c => this.marquee = c}>
+                        <Rss/>
                         {this.props.news.map((newsItem, index) => (
                             <span key={index}>
                                 <span>{newsItem}</span>

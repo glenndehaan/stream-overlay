@@ -61,7 +61,8 @@ class socket {
             ws.send(this.encrypt({
                 instruction: 'init',
                 data: {
-                    news: config.news.titles
+                    news: config.news.titles,
+                    weather: config.weather.details
                 }
             }));
 

@@ -2,6 +2,7 @@ import {h, Component} from 'preact';
 import { connect } from "unistore/preact";
 
 import News from "./partials/News";
+import Weather from "./partials/Weather";
 
 class Home extends Component {
     /**
@@ -13,6 +14,7 @@ class Home extends Component {
         return (
             <div className="starter-template">
                 <News/>
+                <Weather/>
             </div>
         );
     }
