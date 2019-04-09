@@ -1,5 +1,7 @@
 # Stream Overlay
 
+A simple streamoverlay
+
 ## Backend Structure
 - NodeJS
 - Simple Node Logger
@@ -31,7 +33,7 @@ Then open up a webbrowser and go to the site
 Then open up a webbrowser and go to the site
 
 ## Logging
-All logs will be written to the `stream-overlay.log` file in the node folder.
+All logs will be written to the `server.log` file in the log folder.
 
 To increase the logging change the logger level in the `config.json` file from `info` to `debug`.
 
