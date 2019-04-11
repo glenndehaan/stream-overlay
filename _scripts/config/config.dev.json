@@ -4,5 +4,9 @@
   },
   "weather": {
     "key": "xxxxxxxxxxxxxxxxx"
+  },
+  "discogs": {
+    "key": "xxxxxxxxxxxxxxxxx",
+    "secret": "xxxxxxxxxxxxxxxxx"
   }
 }

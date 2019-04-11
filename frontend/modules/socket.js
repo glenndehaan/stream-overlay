@@ -77,6 +77,12 @@ export default new class Socket {
 
             store.setState(message.data);
         }
+
+        if(message.instruction === "updateAlbum") {
+            console.log('[SOCKET] updateAlbum', message.data);
+
+            store.setState(message.data);
+        }
     }
 
     /**

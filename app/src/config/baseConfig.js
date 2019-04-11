@@ -24,7 +24,13 @@ module.exports = {
     },
     weather: {
         enabled: true,
-        location: "Rotterdam,nl"
+        location: "Rotterdam,nl",
+        key: ""
+    },
+    discogs: {
+        url: "https://api.discogs.com/database/search",
+        key: "",
+        secret: ""
     },
     albums: []
 };

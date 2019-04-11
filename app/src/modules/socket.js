@@ -6,6 +6,7 @@ const btoa = require('btoa');
 const atob = require('atob');
 const log = require("./logger");
 const config = require("../config");
+const discogs = require("./discogs");
 
 class socket {
     /**
@@ -13,6 +14,11 @@ class socket {
      */
     constructor() {
         this.socket = null;
+        this.currentAlbum = {
+            title: '',
+            artist: '',
+            artwork: ''
+        };
     }
 
     /**
@@ -43,8 +49,25 @@ class socket {
                     return;
                 }
 
-                if (dataString.instruction === "hello") {
-                    log.info(`[SOCKET][${ws.id}][hello] Hello?: ${dataString.data.id}`);
+                if (dataString.instruction === "updateAlbum") {
+                    log.info(`[SOCKET][${ws.id}][updateAlbum] RAW Data: ${JSON.stringify(dataString.data)}`);
+
+                    if(dataString.data.album.catalogNumber !== "") {
+                        discogs(dataString.data.album.catalogNumber, (data) => {
+                            this.currentAlbum = data;
+
+                            this.informAllSockets("updateAlbum", {
+                                currentAlbum: data
+                            });
+                        });
+                    } else {
+                        this.informAllSockets("updateAlbum", {
+                            currentAlbum: {
+                                title: "",
+                                artwork: ""
+                            }
+                        });
+                    }
                 }
             });
 
@@ -63,7 +86,8 @@ class socket {
                 data: {
                     news: config.news.titles,
                     weather: config.weather.details,
-                    albums: config.albums
+                    albums: config.albums,
+                    currentAlbum: this.currentAlbum
                 }
             }));
 
