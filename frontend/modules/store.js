@@ -9,7 +9,9 @@ import devtools from 'unistore/devtools';
 const createStore = () => {
     const initialState = {
         news: [],
-        weather: {}
+        weather: {},
+        albums: [],
+        currentAlbum: {}
     };
 
     return process.env.NODE_ENV === 'production' ?  createUnistore(initialState) : devtools(createUnistore(initialState));
@@ -24,7 +26,9 @@ const actions = () => {
     return {
         setSocketData(state, payload) {
             return {
-                news: payload.news
+                news: payload.news,
+                weather: payload.weather,
+                albums: payload.albums
             };
         }
     };

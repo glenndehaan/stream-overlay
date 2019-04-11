@@ -14,6 +14,12 @@ const routes = [
         method: 'get',
         controller: 'Index',
         action: 'index'
+    },
+    {
+        route: '/admin',
+        method: 'get',
+        controller: 'Index',
+        action: 'index'
     }
 ];
 

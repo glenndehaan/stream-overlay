@@ -25,5 +25,6 @@ module.exports = {
     weather: {
         enabled: true,
         location: "Rotterdam,nl"
-    }
+    },
+    albums: []
 };

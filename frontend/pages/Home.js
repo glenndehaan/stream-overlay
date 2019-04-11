@@ -1,10 +1,9 @@
 import {h, Component} from 'preact';
-import { connect } from "unistore/preact";
 
-import News from "./partials/News";
-import Weather from "./partials/Weather";
+import News from "../components/partials/News";
+import Weather from "../components/partials/Weather";
 
-class Home extends Component {
+export default class Home extends Component {
     /**
      * Preact render function
      *
@@ -19,8 +18,3 @@ class Home extends Component {
         );
     }
 }
-
-/**
- * Connect the store to the component
- */
-export default connect('servers,matches,lang')(Home);

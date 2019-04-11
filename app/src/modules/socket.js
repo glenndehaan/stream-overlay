@@ -62,7 +62,8 @@ class socket {
                 instruction: 'init',
                 data: {
                     news: config.news.titles,
-                    weather: config.weather.details
+                    weather: config.weather.details,
+                    albums: config.albums
                 }
             }));
 
