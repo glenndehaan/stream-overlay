@@ -32,5 +32,10 @@ module.exports = {
         key: "",
         secret: ""
     },
+    scanner: {
+        enabled: true,
+        vendorId: 2056,
+        productId: 1542
+    },
     albums: []
 };

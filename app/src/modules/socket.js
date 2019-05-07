@@ -61,6 +61,12 @@ class socket {
                             });
                         });
                     } else {
+                        this.currentAlbum = {
+                            title: '',
+                            artist: '',
+                            artwork: ''
+                        };
+
                         this.informAllSockets("updateAlbum", {
                             currentAlbum: {
                                 title: "",

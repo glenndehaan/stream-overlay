@@ -6,10 +6,12 @@ const fs = require("fs");
 /**
  * Import own modules
  */
+const config = require("./config");
 const log = require("./modules/logger");
 const web = require("./modules/web");
 const news = require("./modules/news");
 const weather = require("./modules/weather");
+const scanner = require("./modules/scanner");
 
 /**
  * Check if we are running as dev
@@ -40,9 +42,19 @@ if(!dev) {
         web.init();
         news.init();
         weather.init();
+        if(config.scanner.enabled) {
+            scanner.init();
+        } else {
+            scanner.logDevices();
+        }
     }
 } else {
     web.init();
     news.init();
     weather.init();
+    if(config.scanner.enabled) {
+        scanner.init();
+    } else {
+        scanner.logDevices();
+    }
 }
