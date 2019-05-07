@@ -33,7 +33,7 @@ module.exports = {
         secret: ""
     },
     scanner: {
-        enabled: true,
+        enabled: false,
         vendorId: 2056,
         productId: 1542
     },
